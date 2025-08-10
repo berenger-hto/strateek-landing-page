@@ -1,0 +1,24 @@
+{
+  "name": "strateek",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@types/lodash": "^4.17.20",
+    "lodash": "^4.17.21",
+    "lucide": "^0.525.0",
+    "vanilla-toast": "^0.5.0"
+  }
+}
