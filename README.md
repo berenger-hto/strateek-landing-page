@@ -12,6 +12,7 @@
 
 ```bash
 git clone https://github.com/berenger-hto/strateek-landing-page.git
+https://github.com/berenger-hto/strateek-landing-page.git
 npm install
 npm run dev
 ```

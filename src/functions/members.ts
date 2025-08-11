@@ -11,7 +11,7 @@ import img10 from "../assets/team/10.png";
 
 type Member = {
     fullName: string
-    role: string
+    role: string | string[]
     desc: string
     profil: string
 }
@@ -19,25 +19,25 @@ type Member = {
 export const members: Member[] = [
     {
         fullName: "TOTO HINCHEGNON B. J.",
-        role: "CEO (PDG)",
+        role: ["CEO (PDG)", "Gestionnaire de projets et vision stratégique"],
         desc: "Vision stratégique, planification, gestion des projets et développement des partenariats.",
         profil: img1
     },
     {
         fullName: "HOUNDJENOUKON Mardochée",
-        role: "Managing Director (DG)",
+        role: ["Directeur Général (DG)", "Funnel Builder"],
         desc: "Gestion quotidienne, suivi opérationnel et expert en funnel building.",
         profil: img2
     },
     {
         fullName: "CHITOU Mahmoud",
-        role: "COO",
+        role: ["Directeur des opérations", "Graphiste et monteur vidéo"],
         desc: "Supervision des opérations, montage vidéo et design graphique.",
         profil: img3
     },
     {
         fullName: "SAKITI Eustache",
-        role: "DSI & Développeur",
+        role: "Directeur du système d'information",
         desc: "Gestion de l’infrastructure IT, cybersécurité et développement web.",
         profil: img4
     },
@@ -85,7 +85,8 @@ export function appendMembers() {
     members.forEach(member => {
         const card = template.content.cloneNode(true) as DocumentFragment
         (card.querySelector("img") as HTMLImageElement).src = (member.profil);
-        (card.querySelector("#member-role") as HTMLParagraphElement).textContent = member.role;
+        const cardRole = (card.querySelector("#member-role") as HTMLParagraphElement);
+        typeof member.role === "object" ? cardRole.innerHTML = `${member.role[0]} <br /> ${member.role[1]}` : cardRole.textContent = member.role;
         (card.querySelector("#member-name") as HTMLParagraphElement).textContent = member.fullName;
         document.querySelector(".members-cards")?.append(card)
     })
